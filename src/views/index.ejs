@@ -1,0 +1,43 @@
+<div class="container1">
+    <%- include('layouts/nav') %>
+</div>
+<div class="container2">
+    <div class="benefit-container">
+        <img class="benefit1" src="/images/image1.webp" alt="Benefit 1">
+    </div>
+    <div class="benefit-container">
+        <img class="benefit2" src="/images/image2.webp" alt="Benefit 2">
+    </div>
+</div>
+<div class="container3">
+    <h2 class="">Te puede interesar</h2>
+    <div class="interests">
+        <% interests.forEach(product => { %>
+            <%- include('components/productCard', { 
+                id: product.id,
+                name: product.name,
+                image: product.image,
+                points: product.points,
+                category: product.category
+            }) %>
+        <% }) %>
+    </div>
+    <h2 class="interests-title">Los más pedidos</h2>
+    <div class="interests">
+        <% mostRequested.forEach(product => { %>
+            <%- include('components/productCard', { 
+                id: product.id,
+                name: product.name,
+                image: product.image,
+                points: product.points,
+                category: product.category
+            }) %>
+        <% }) %>
+    </div>
+</div>
+<div class="container1">
+    <%- include('layouts/nav') %>
+</div>
+
+<script src="/js/dropdown.js"></script>
+<script src="/js/search.js"></script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Ecommerce</title>
+
+    <link rel="stylesheet" href="/css/layouts/header.css">
+    <link rel="stylesheet" href="/css/views/login-register.css">
+    <link rel="stylesheet" href="/css/layouts/footer.css">
+</head>
+<body>
+    <%- include('layouts/header', { loggedIn: loggedIn }) %>
+    <main>
+        <div>
+            <h2>¡Registrate!</h2>
+            <form id="registerForm" action="/register" method="POST">
+
+                <input id="email" type="text" name="email" placeholder="Tu email" autocomplete="email">
+                <input id="password" type="text" name="password" placeholder="Tu nueva contraseña">
+                <input id="password-repeat" type="text" name="password-repeat" placeholder="Repite tu contraseña">
+
+                <button class="button-submit" type="submit">Crear Cuenta</button>
+
+            </form>
+            <h5>¿Ya tienes cuenta? <a href="/login">Iniciar Sesión</a></h5>
+        </div>
+    </main>
+    <%- include('layouts/footer') %>
+    
+    <script src="/js/register.js"></script>
+</body>
+</html>

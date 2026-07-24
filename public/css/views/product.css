@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    flex: 1;
+}
+
+.container1 {
+    background-color: #f4f4f4;
+    width: 100%;
+    padding: 2.5rem 2.5rem;
+}
+
+.container1-mobile {
+    display: none;
+}
+
+.product-container-mobile {
+    background-color: #ffffff;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-image-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-image-mobile img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.thumbs-mobile {
+    display: flex;
+    gap: 10px;
+    margin-top: 0.5rem;
+}
+
+.container2 {
+    background-color: #f4f4f4;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 6rem;
+}
+
+.interests {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.6rem;
+}
+
+.interests-title {
+    margin: 0;
+    text-align: start;
+}
+
+.container3 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #f4f4f4;
+    padding: 4rem 6rem;
+}
+
+@media(min-width: 825px) 
+{
+    .container1 {
+        padding: 2.5rem 6rem;
+    }
+}
+
+@media (min-width: 946px) {
+    .interests {
+        grid-template-columns: repeat(4, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 945px) {
+    .interests {
+        grid-template-columns: repeat(2, minmax(160px, 1fr));
+    }
+}
+
+@media (max-width: 849px) {
+    .container1 {
+        display: none;
+    }
+    
+    .container1-mobile {
+        display: block;
+        background-color: #f4f4f4;
+        width: 100%;
+        padding: 2rem 6rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .interests {
+        grid-template-columns: 1fr;
+    }
+
+    .container1-mobile {
+        padding: 2rem;
+    }
+
+    .container3 {
+        padding: 2rem;
+    }
+}

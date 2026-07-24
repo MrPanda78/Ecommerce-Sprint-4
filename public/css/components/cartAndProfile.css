@@ -1,0 +1,76 @@
+.cart-and-profile {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.cart {
+    position: relative;
+    background: #2b2f36;
+    border-radius: 999px;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease 0.1s;
+    cursor: pointer;
+}
+
+.cart:hover {
+    background-color: #0cb093;
+}
+
+.cart .icon-cart {
+    width: 20px;
+    height: 20px;
+    fill: #cfcfcf;
+}
+
+.badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: #ff3b30;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 999px;
+    padding: 2px 6px;
+}
+
+.user {
+    background: #2b2f36;
+    border-radius: 999px;
+    padding: 6px 12px 6px 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease 0.1s;
+    cursor: pointer;
+}
+
+.user:hover {
+    background-color: #0cb093;
+}
+
+.user img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+}
+
+.user span {
+    color: #e5e7eb;
+    font-size: 14px;
+    display: block;
+}
+
+@media (max-width: 640px) {
+    .user {
+        padding: 6px;
+    }
+
+    .user span {
+        display: none;
+    }
+}

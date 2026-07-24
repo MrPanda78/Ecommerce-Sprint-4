@@ -1,0 +1,22 @@
+<div class="cart-and-profile">
+    <a href="/cart" class="cart">
+        <% if (totalItems> 0) { %>
+        <span class="badge"><%= totalItems %></span>
+        <% } %>
+        <svg class="icon-cart" viewBox="0 0 28 28">
+            <path d="M7 4h-2l-1 2h2l3.6 7.59-1.35 2.44c-.16.28-.25.61-.25.97 
+            0 1.1.9 2 2 2h12v-2h-12l1.1-2h7.45c.75 0 
+            1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 
+            0-.55-.45-1-1-1h-16.31l-.94-2zm3 16c-1.1 
+            0-2 .9-2 2s.9 2 2 2 2-.9 
+            2-2-.9-2-2-2zm8 0c-1.1 
+            0-2 .9-2 2s.9 2 2 2 2-.9 
+            2-2-.9-2-2-2z"/>
+        </svg>
+    </a>
+    
+    <div class="user" id="userBtn">
+        <img src="https://i.pravatar.cc/40" alt="Avatar" />
+        <span>Olivia</span>
+    </div>
+</div>

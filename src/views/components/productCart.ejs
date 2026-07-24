@@ -1,0 +1,23 @@
+<div class="product-cart">
+    <div class="product-cart-image-and-info">
+        <img src="<%= "/images/products/" + category + "/" + image %>" alt="<%= name %>">
+        <p class="product-name"><%= name %></p>
+    </div>
+    <div class="product-cart-actions">
+        <div class="product-remove-and-change">
+            <form action="/cart/remove/<%= id %>" method="POST">
+                <button class="product-remove-button">Quitar</button>
+            </form>
+            <div class="quantity-selector">
+                <form action="/cart/decrement/<%= id %>" method="POST">
+                    <button class="qty-btn minus">-</button>
+                </form>
+                <input class="qty-input" name="qty-product" type="number" value=<%= quantity %> data-points="<%= String(points).replace(/\./g, '') %>">
+                <form action="/cart/increment/<%= id %>" method="POST">
+                    <button class="qty-btn plus">+</button>
+                </form>
+            </div>
+        </div>
+        <span class="price"><%= new Intl.NumberFormat('es-CL').format(points) %></span>
+    </div>
+</div>

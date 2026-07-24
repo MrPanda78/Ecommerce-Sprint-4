@@ -1,0 +1,88 @@
+nav {
+    display: flex;
+    align-items: center;
+    background: #3a3a3a;
+    padding: 10px;
+    border-radius: 12px;                   
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: row;
+    gap: 0;
+}
+
+.nav-item {
+    width: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: #d1d5db;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.5s ease;
+    text-decoration: none;
+}
+
+.nav-item:hover, .nav-item:hover span {
+    color: #0cb093;
+}
+
+.nav-item p {
+    font-size: 0.7rem;
+    margin: 0;
+}
+
+.nav-icon {
+    width: 2rem;
+    height: 2rem;
+    stroke: currentColor;   /* hereda color */
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.nav-divider {
+    width: 2px;
+    height: 40px;
+    background: #6b7280;
+    display: block;
+}
+
+@media (max-width: 945px) {
+    .nav-item {
+        padding: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    nav 
+    {
+        align-items: start;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .nav-item {
+        flex-direction: row;
+        width: 100%;
+        border-radius: 1rem;
+        padding: 0.5rem;
+    }
+
+    .nav-item:hover, .nav-item:hover span {
+        background-color: #0cb093;
+        color: #000000;
+    }
+
+    .nav-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .nav-divider
+    {
+        display: none;
+    }
+}

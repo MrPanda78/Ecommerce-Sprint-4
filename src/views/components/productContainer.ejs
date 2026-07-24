@@ -1,0 +1,32 @@
+<form class="product-container" action="/cart/add/<%= product.id %>" method="POST">
+    <div class="product-left">
+        <div class="thumbs">
+            <% for(let i = 0; i < 3; i++) { %>
+                <img src="<%= "/images/products/" + product.category + "/" + product.image %>" class="thumb <%= i === 0 ? 'active' : '' %>" />
+            <% } %>
+        </div>
+
+        <div class="main-image">
+            <img src="<%= "/images/products/" + product.category + "/" + product.image %>" alt="producto" />
+        </div>
+    </div>
+
+    <div class="product-right">
+        <h2 class="title"><%= product.name %></h2>
+
+        <div class="price">
+            <span class="amount"><%= new Intl.NumberFormat('es-CL').format(product.points) %></span>
+            <span class="points">PESOS</span>
+        </div>
+
+        <% if(product.stock < 1) {%>
+        <button disabled type="submit" class="btn-add">Sin Stock</button>
+        <% } else { %>
+        <button type="submit" class="btn-add">Agregar al carrito</button>
+        <% } %>
+    
+        <div class="description">
+            <p><%- product.description.replace(/\n/g, "<br>") %></p>
+        </div>
+    </div>
+</form>

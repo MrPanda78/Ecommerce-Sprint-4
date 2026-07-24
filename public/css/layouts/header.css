@@ -1,0 +1,40 @@
+header {
+    padding: 1rem;
+    gap: 1rem;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #757878;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo h1, .logo h2 {
+    color: #0cb093;
+    font-size: 28px;
+    margin: 0;
+}
+
+.logo h1 {
+    font-weight: bold;
+}
+
+.logo h2 {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+}
+
+.logo h2 span {
+    display: block;
+}
+
+@media (max-width: 640px) {
+    .logo h2 span {
+        display: none;
+    }
+}

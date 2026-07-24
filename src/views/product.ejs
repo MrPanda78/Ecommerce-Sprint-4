@@ -1,0 +1,51 @@
+<div class="container1">
+    <%- include('components/breadCrumb', { page: 'product', product }) %>
+    <%- include('components/productContainer', { product }) %>
+</div>
+<div class="container1-mobile">
+    <%- include('components/breadCrumb', { page: 'product', translateCategory }) %>
+    <form class="product-container-mobile" action="/cart/add/<%= product.id %>" method="POST">
+        <h2 class="title"><%= product.name %></h2>
+        <div class="main-image-mobile">
+            <img src="<%= "/images/products/" + product.category + "/" + product.image %>" alt="Product" />
+        </div>
+        <div class="thumbs-mobile">
+            <% for(let i = 0; i < 3; i++) { %>
+                <img src="<%= "/images/products/" + product.category + "/" + product.image %>" class="thumb <%= i === 0 ? 'active' : '' %>" />
+            <% } %>
+        </div>
+        <div class="price">
+            <span class="amount"><%= new Intl.NumberFormat('es-CL').format(product.points) %></span>
+            <span class="points">PUNTOS</span>
+        </div>
+        <div class="description">
+            <p><%- product.description.replace(/\n/g, "<br>") %></p>
+        </div>
+        <button type="submit" class="btn-add">Agregar al carrito</button>
+    </form>
+</div>
+<div class="container2">
+    <% if (interests.length !== 0) { %>
+        <h2 class="interests-title">También te puede interesar</h2>
+        <div class="interests">
+            <% interests.forEach(product => { %>
+                <%- include('components/productCard', { 
+                    id: product.id,
+                    name: product.name,
+                    image: product.image,
+                    points: product.points,
+                    category: product.category,
+                    stock: product.stock
+                }) %>
+            <% }) %>
+        </div>
+    <% } else { %>
+        <h2 class="interests-title">Lo sentimos... no hay productos relacionados para mostrar.</h2>
+    <% } %>
+</div>
+<div class="container3">
+    <%- include('layouts/nav') %>
+</div>
+
+<script src="/js/dropdown.js"></script>
+<script src="/js/search.js"></script>

@@ -1,0 +1,56 @@
+<div class="breadcrumb">
+    <div class="contain-breadcrumb">
+        <a href="/" class="back-to-home">
+            <svg width="32px" height="32px" viewBox="0 -6.5 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                    <g id="icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="ui-gambling-website-lined-icnos-casinoshunter" transform="translate(-1641.000000, -158.000000)" fill="#1C1C1F" fill-rule="nonzero">
+                            <g id="1" transform="translate(1350.000000, 120.000000)">
+                                <path d="M317.812138,38.5802109 L328.325224,49.0042713 L328.41312,49.0858421 C328.764883,49.4346574 328.96954,49.8946897 329,50.4382227 L328.998248,50.6209428 C328.97273,51.0514917 328.80819,51.4628128 328.48394,51.8313977 L328.36126,51.9580208 L317.812138,62.4197891 C317.031988,63.1934036 315.770571,63.1934036 314.990421,62.4197891 C314.205605,61.6415481 314.205605,60.3762573 314.990358,59.5980789 L322.274264,52.3739093 L292.99947,52.3746291 C291.897068,52.3746291 291,51.4850764 291,50.3835318 C291,49.2819872 291.897068,48.3924345 292.999445,48.3924345 L322.039203,48.3917152 L314.990421,41.4019837 C314.205605,40.6237427 314.205605,39.3584519 314.990421,38.5802109 C315.770571,37.8065964 317.031988,37.8065964 317.812138,38.5802109 Z" id="left-arrow" transform="translate(310.000000, 50.500000) scale(-1, 1) translate(-310.000000, -50.500000) "></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+            <h3>Volver<% if (page === 'product' || page === 'checkout') {%> al listado<% } %></h3>
+        </a>
+        <% if (page === 'product' || page === 'categories') { %>
+        <svg width="20px" height="20px" viewBox="-4.5 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Dribbble-Light-Preview" transform="translate(-305.000000, -6679.000000)" fill="#000000">
+                        <g id="icons" transform="translate(56.000000, 160.000000)">
+                            <path d="M249.365851,6538.70769 L249.365851,6538.70769 C249.770764,6539.09744 250.426289,6539.09744 250.830166,6538.70769 L259.393407,6530.44413 C260.202198,6529.66364 260.202198,6528.39747 259.393407,6527.61699 L250.768031,6519.29246 C250.367261,6518.90671 249.720021,6518.90172 249.314072,6519.28247 L249.314072,6519.28247 C248.899839,6519.67121 248.894661,6520.31179 249.302681,6520.70653 L257.196934,6528.32352 C257.601847,6528.71426 257.601847,6529.34685 257.196934,6529.73759 L249.365851,6537.29462 C248.960938,6537.68437 248.960938,6538.31795 249.365851,6538.70769" id="arrow_right-[#336]"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+            <% if (page === 'categories') { %>
+                <% if (categorySelected === "all") { %>
+                    <a class="category" href="/categories">Todos los productos</a>
+                <% } else { %>
+                    <a class="category" href="/categories/<%= categorySelected %>"><%= translateCategory[categorySelected] %></a>
+                <% } %>
+            <% } else if (page === 'product') { %>
+                <a class="category" href="/categories/<%= product.category %>"><%= translateCategory[product.category] %></a>
+            <% }
+        } %>
+    </div>
+    <% if (page === 'categories') { %>
+        <div class="filter-div">
+            <h2 class="filter-title">Ordenar precio por:</h2>
+            <% if (categorySelected === "all") { %>
+                <a class="filter-button" href="/categories?sort=asc">Menor a Mayor</a>
+                <a class="filter-button" href="/categories?sort=desc">Mayor a Menor</a>
+            <% } else { %>
+                <a class="filter-button" href="/categories/<%= categorySelected %>?sort=asc">Menor a Mayor</a>
+                <a class="filter-button" href="/categories/<%= categorySelected %>?sort=desc">Mayor a Menor</a>
+            <% } %>
+        </div>
+    <% } %>
+</div>

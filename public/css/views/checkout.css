@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: #f4f4f4;
+}
+
+.container {
+    background-color: #f4f4f4;
+    width: 100%;
+    padding: 2.5rem 2.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+main div div a {
+    background-color: #494f51;
+    color: #ffffff;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    padding: 0.75rem;
+    font-size: 1rem;
+    transition: background-color 0.3s ease 0.1s;
+    text-decoration: none;
+    text-align: center;
+}
+
+main div div a:hover {
+    background-color: #0cb093;
+}

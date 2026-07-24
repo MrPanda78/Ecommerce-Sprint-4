@@ -1,0 +1,10 @@
+<header>
+    <div class="logo">
+        <h1>Mi</h1>
+        <h2>E<span>commerce</span></h2>
+    </div>
+    <% if (loggedIn === 1) { %>
+        <%- include('../components/searchBar') %>
+        <%- include('../components/cartAndProfile', { empty: false }) %>
+    <% } %>
+</header>
