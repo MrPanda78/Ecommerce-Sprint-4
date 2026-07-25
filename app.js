@@ -15,6 +15,7 @@ const indexController = require('./src/controllers/indexController');
 const searchRoutes = require('./src/routes/searchRoute');
 
 const apiProductRoutes = require("./src/routes/api/apiProductRoute");
+const apiCategoriesRoutes = require("./src/routes/api/apiCategoriesRoute");
 
 const app = express();
 
@@ -45,7 +46,7 @@ app.use('/register', registerRoutes);
 app.use('/search', searchRoutes);
 
 app.use("/api/products", apiProductRoutes);
-app.use("/api/categories", categoriesRoutes);
+app.use("/api/categories", apiCategoriesRoutes);
 
 app.use(indexController.error404);
 
