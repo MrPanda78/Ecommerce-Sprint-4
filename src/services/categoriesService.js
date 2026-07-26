@@ -16,6 +16,12 @@ const categoriesService = {
         return this.getCategoryById(result.lastInsertRowid);
     },
 
+    countCategories() {
+        const result = db.prepare(`SELECT COUNT(*) AS total FROM categories`).get();
+        
+        return result.total;
+    },
+
     updateCategory(id, category) {
         const result = db.prepare(`UPDATE categories SET name = ? WHERE id = ?`).run(category.name, id);
 

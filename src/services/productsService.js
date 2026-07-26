@@ -32,6 +32,14 @@ const productsService = {
         return this.getProductById(result.lastInsertRowid);
     },
 
+    countProducts() {
+        const result = db.prepare(`
+            SELECT COUNT(*) AS total
+            FROM products
+        `).get();
+        return result.total;
+    },
+
     deleteProduct(id) {
         const result = db.prepare(`
             DELETE FROM products
