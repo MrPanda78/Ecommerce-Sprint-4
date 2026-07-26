@@ -1,6 +1,53 @@
 const db = require("../db/database");
 
 const productsService = {
+    categoryExists(categoryId) {
+        const category = db.prepare(`
+            SELECT id
+            FROM categories
+            WHERE id = ?
+        `).get(categoryId);
+        return !!category;
+    },
+
+    createProduct(product) {
+        const result = db.prepare(`
+            INSERT INTO products (
+                category_id,
+                name,
+                description,
+                points,
+                stock,
+                image
+            )
+            VALUES (?, ?, ?, ?, ?, ?)
+        `).run(
+            product.category_id,
+            product.name,
+            product.description,
+            product.points,
+            product.stock,
+            product.image
+        );
+        return this.getProductById(result.lastInsertRowid);
+    },
+
+    countProducts() {
+        const result = db.prepare(`
+            SELECT COUNT(*) AS total
+            FROM products
+        `).get();
+        return result.total;
+    },
+
+    deleteProduct(id) {
+        const result = db.prepare(`
+            DELETE FROM products
+            WHERE id = ?
+        `).run(id);
+        return result.changes > 0;
+    },
+
     getAllProducts() {
         return db.prepare(`
             SELECT products.*, categories.name AS category
@@ -92,6 +139,33 @@ const productsService = {
                 ON products.category_id = categories.id
             WHERE LOWER(products.name) LIKE '%' || LOWER(?) || '%';
         `).all(buscar);
+    },
+
+    updateProduct(id, product) {
+        const result = db.prepare(`
+            UPDATE products
+            SET
+                category_id = ?,
+                name = ?,
+                description = ?,
+                points = ?,
+                stock = ?,
+                image = ?
+            WHERE id = ?
+        `).run(
+            product.category_id,
+            product.name,
+            product.description,
+            product.points,
+            product.stock,
+            product.image,
+            id
+        );
+
+        if (result.changes === 0) {
+            return null;
+        }
+        return this.getProductById(id);
     }
 };
 
